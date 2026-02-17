@@ -141,12 +141,12 @@ const ServiceMembers = () => {
         </div>
       </div>
 
-      <div className="max-w-6xl mx-auto">
+      <div className="">
         {/* ===== Header Icon & Title ===== */}
         <div className="flex items-center gap-4 mb-10">
           <div
-            className="w-14 h-14 flex items-center justify-center rounded-full"
-            style={{ backgroundColor: "rgba(132, 42, 76, 0.1)" }}
+            className="w-14 h-14 flex items-center justify-center rounded-full md:bg-[rgba(132,42,76,0.1)]"
+           
           >
             <FaPerson className="text-2xl text-[#842a4c]" />
           </div>
@@ -159,14 +159,14 @@ const ServiceMembers = () => {
 
         {/* ===== LEADERS SECTION ===== */}
         <div className="mb-10">
-          <div className="grid grid-cols-3  gap-2 md:gap-4">
+          <div className="grid gird-colos-1 sm:grid-cols-2 lg:grid-cols-3  gap-2 md:gap-4">
             {data.leaders.map((person) => (
               <div
                 key={person.id}
-                className="bg-white rounded-2xl shadow-md hover:shadow-lg transition p-4 flex flex-col md:flex-row items-center gap-4"
+                className="bg-white rounded-2xl shadow-md hover:shadow-lg transition p-4 flex flex-row md:flex-row items-center gap-4"
               >
                 {/* Image */}
-                <div className="relative overflow-hidden border-2 border-[#842a4c] p-1 rounded-full w-20 h-20 lg:w-40 lg:h-40 flex-shrink-0">
+                <div className="relative overflow-hidden border-2 border-[#842a4c] p-1 rounded-full w-32 h-32 md:w-32 md:h-32 flex-shrink-0">
                   <img
                     src={person.image}
                     alt={person.name}
@@ -175,7 +175,7 @@ const ServiceMembers = () => {
                 </div>
 
                 {/* Info */}
-                <div className="flex-1 flex flex-col items-center">
+                <div className="flex flex-col items-center">
                   <h3 className="text-lg md:text-2xl font-semibold text-[#842a4c]">
                     {person.name}
                   </h3>

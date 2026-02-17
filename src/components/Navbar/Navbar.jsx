@@ -23,7 +23,7 @@ const Navbar = () => {
       to: "/directory",
       icon: <FiUsers />,
       label: "Directory",
-      special: true,
+      special: false,
     },
     { to: "/prayer", icon: <FaPray />, label: "Prayer" },
     { to: "/events", icon: <FaCalendarAlt />, label: "Events" },

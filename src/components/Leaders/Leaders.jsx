@@ -39,7 +39,7 @@ const Leaders = () => {
     <section className="w-full bg-[#2f343a] py-16 md:py-24 mt-[64px]">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         {/* Responsive Grid Layout */}
-        <div className="flex gap-2 md:gap-6 lg:gap-8 justify-center">
+        <div className="flex gap-2 lg:gap-3 justify-center">
           {data.map((leader) => (
             <div
               key={leader.id}
@@ -58,7 +58,7 @@ const Leaders = () => {
                 </div>
 
                 {/* Content */}
-                <div className="text-center flex flex-col justify-center items-center space-y-3">
+                <div className="text-center flex flex-col justify-center items-center space-y-2">
                   <h3 className="font-serif text-sm md:text-2xl text-[#f5f3ef]">
                     {leader.name}
                   </h3>

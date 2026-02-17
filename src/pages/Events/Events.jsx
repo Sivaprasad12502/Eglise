@@ -93,7 +93,7 @@ const Events = () => {
                 </div>
               </div>
             </div>
-      <div className="max-w-6xl mx-auto">
+      <div className="">
         {/* ===== Header ===== */}
         <div className="flex items-center gap-4 mb-6">
           <div
@@ -114,7 +114,7 @@ const Events = () => {
         </div>
         <div className="flex justify-between items-center mb-6">
             <span className="text-sm font-bold text-gray-500">Upcoming Events: {events.length}</span>
-            <span className="flex items-center gap-1 text-sm font-bold text-green-500 bg-slate-50 p-2 rounded-md"><FaCalendarAlt/> This Month</span>
+            <span className="flex items-center gap-1 text-sm font-bold text-primary bg-slate-50 p-2 rounded-md"><FaCalendarAlt/> This Month</span>
           </div>
 
         {/* ===== Event List ===== */}
@@ -134,13 +134,13 @@ const Events = () => {
                   </div>
 
                   <div className=" flex flex-col items-center gap-2 
-                  text-lg font-semibold  text-gray-600 mt-2 p-6">
-                    <span className="flex items-center gap-1 "><FaUsers/> {event.family}</span>
-                    <span className="flex items-center gap-1 text-green-500">
+                  text-lg   text-gray-600 mt-2 p-6">
+                    <span className="flex items-center gap-1 font-bold"><FaUsers/> {event.family}</span>
+                    <span className="flex items-center gap-1 text-green-500 text-sm font-normal">
                       <FaCalendarAlt className="text-green-500" />
                       {new Date(event.date).toDateString()}
                     </span>
-                    <span className="flex items-center gap-1">
+                    <span className="flex items-center gap-1 text-sm font-semibold">
                       <FaMapMarkerAlt className="text-orange-500" />
                       {event.location}
                     </span>

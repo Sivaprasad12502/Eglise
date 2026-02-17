@@ -91,7 +91,7 @@ const Family = () => {
                </div>
              </div>
         <div className="flex justify-between p-1">
-          <span className="block mt-2 font-medium text-primary bg-bglight p-1 rounded-md">
+          <span className="block  font-medium text-primary bg-bglight p-1 rounded-md">
             Total Families: <strong>12</strong>
           </span>
           <span className="flex items-center gap-1 bg-bglight p-1 rounded-md font-bold text-primary">
@@ -101,7 +101,7 @@ const Family = () => {
       </div>
 
       {/* Members List */}
-      <div className=" grid gap-y-6 grid-cols-1 w-full p-4">
+      <div className=" grid gap-y-6 grid-cols-1 w-full ">
         {items.map((item) => (
           <Link
             to={`/family-details/${item.id}`}

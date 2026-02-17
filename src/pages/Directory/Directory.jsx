@@ -76,7 +76,7 @@ const Directory = () => {
           <span className="text-primary font-bold">320 Families</span>
         </div>
       </div>
-      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:gap-8 justify-items-center gap-2 mt-4 p-4">
+      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:gap-8 justify-items-center gap-2 mt-4 ">
         {ward.map((item) => (
           <Link to={`/family/${item.id}`}
           key={item.id}

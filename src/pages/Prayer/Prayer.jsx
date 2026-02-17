@@ -2,14 +2,27 @@ import React from "react";
 import { FaPrayingHands, FaUser } from "react-icons/fa";
 import Back from "../../components/back/Back";
 import { FaPerson } from "react-icons/fa6";
-import { FiHeart, FiInfo, FiMapPin, FiSend, FiShare, FiUser } from "react-icons/fi";
-import { FavoriteBorder, InfoOutlined, LocationOnOutlined, PersonOutline, Send } from "@mui/icons-material";
+import {
+  FiHeart,
+  FiInfo,
+  FiMapPin,
+  FiSend,
+  FiShare,
+  FiUser,
+} from "react-icons/fi";
+import {
+  FavoriteBorder,
+  InfoOutlined,
+  LocationOnOutlined,
+  PersonOutline,
+  Send,
+} from "@mui/icons-material";
 
 const Prayer = () => {
   return (
-    <div className="min-h-screen px-4 py-5 flex justify-center w-full">
-      <div className="w-full max-w-3xl">
-        <Back />
+    <div className="min-h-screen px-4 py-5 flex flex-col justify-center w-full">
+      <Back />
+      <div className="w-full ">
         {/* ===== Header ===== */}
         <div className="text-center mb-10">
           <div
@@ -27,7 +40,7 @@ const Prayer = () => {
         </div>
 
         {/* ===== Form Card ===== */}
-        <div className="bg-white rounded-2xl shadow-xl p-8 md:p-10">
+        <div className="bg-white rounded-2xl shadow-xl p-8 md:p-10 max-w-4xl mx-auto">
           <form className="space-y-6">
             {/* Name */}
             <div className="relative">
@@ -109,7 +122,9 @@ const Prayer = () => {
               </div>
             </div>
             <div className="flex gap-2 border border-primary p-3 rounded-lg bg-bglight">
-              <span className="text-primary"><InfoOutlined/></span>
+              <span className="text-primary">
+                <InfoOutlined />
+              </span>
               <p className="text-sm font-light">
                 Your Prayer request will be shared with our parish community. We
                 respect your privacy and handle all request with care.
@@ -118,7 +133,6 @@ const Prayer = () => {
 
             {/* Submit */}
             <div className="text-center flex justify-center pt-4">
-             
               <button
                 type="submit"
                 className="flex items-center gap-2 px-8 py-3 rounded-lg text-white font-medium transition"
@@ -126,9 +140,8 @@ const Prayer = () => {
                   background: "linear-gradient(135deg, #842a4c, #af1f53)",
                 }}
               >
-                
-                <Send className=" size-5 text-white"/>
-              Submit Prayer Request
+                <Send className=" size-5 text-white" />
+                Submit Prayer Request
               </button>
             </div>
           </form>

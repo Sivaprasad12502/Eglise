@@ -58,7 +58,7 @@ const ServiceDetail = () => {
         
         {/* Hero Header Section */}
         <div className="bg-gradient-to-br from-[#842a4c] via-[#a8295d] to-[#842a4c] rounded-3xl shadow-xl overflow-hidden mb-8">
-          <div className="p-8 md:p-12">
+          <div className="p-4 md:p-12">
             {/* Title */}
             <div className="text-center mb-8">
               <h1 className="text-3xl md:text-4xl font-bold text-white mb-2">
@@ -71,12 +71,12 @@ const ServiceDetail = () => {
             <div className="flex items-center justify-center gap-6 md:gap-12">
               {/* Church Icon */}
               <div className="bg-white/20 backdrop-blur-sm p-4 md:p-6 rounded-2xl hover:bg-white/30 transition-all duration-300 hover:scale-110">
-                <FaChurch className="text-4xl md:text-6xl text-white" />
+                <FaChurch className=" text-2xl sm:text-4xl md:text-6xl text-white" />
               </div>
 
               {/* Center Image */}
               <div className="relative">
-                <div className="w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-white/30 overflow-hidden shadow-2xl">
+                <div className="w-28 h-28 sm:w-32 sm:h-32 md:w-40 md:h-40 rounded-full border-4 border-white/30 overflow-hidden shadow-2xl">
                   <img
                     src="https://cbx-prod.b-cdn.net/COLOURBOX63463006.jpg?width=800&height=800&quality=70"
                     alt={service.title}
@@ -90,7 +90,7 @@ const ServiceDetail = () => {
 
               {/* Bible Icon */}
               <div className="bg-white/20 backdrop-blur-sm p-4 md:p-6 rounded-2xl hover:bg-white/30 transition-all duration-300 hover:scale-110">
-                <FaBible className="text-4xl md:text-6xl text-white" />
+                <FaBible className="text-2xl sm:text-4xl md:text-6xl text-white" />
               </div>
             </div>
           </div>

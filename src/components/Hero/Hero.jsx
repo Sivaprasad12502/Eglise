@@ -10,7 +10,7 @@ import { FiBell } from "react-icons/fi";
 
 const Hero = () => {
   return (
-    <div className="relative h-[60vh] md:h-[75vh] lg:h-[85vh] w-screen overflow-hidden">
+    <div className="relative h-[60vh] md:h-[75vh] lg:h-[85vh] overflow-hidden w-full sm:w-screen">
       {/* Background Image with Parallax Effect */}
       <div className="absolute inset-0 transform scale-105 transition-transform duration-700 hover:scale-110">
         {/* <img
@@ -37,7 +37,7 @@ const Hero = () => {
       <div className="absolute bottom-20 left-10 w-40 h-40 bg-blue-500/10 rounded-full blur-3xl animate-pulse delay-75" />
 
       {/* Content Container */}
-      <div className="relative z-10 flex flex-col justify-end h-full px-4 md:px-8 lg:px-16 py-8 md:py-12">
+      <div className="relative z-10 flex flex-col justify-end h-full container mx-auto px-4 ">
         {/* Top Section - Optional Icon/Logo */}
         {/* <div className="flex justify-center md:justify-start">
           <div className="bg-primary/50 backdrop-blur-md p-3 rounded-full border border-white/20 shadow-xl animate-fade-in">

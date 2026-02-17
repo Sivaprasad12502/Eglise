@@ -4,12 +4,14 @@ import Back from "../../components/back/Back";
 import { createPortal } from "react-dom";
 import { FiShare } from "react-icons/fi";
 import { FaShare } from "react-icons/fa";
+import { BsEye } from "react-icons/bs";
+import { Visibility } from "@mui/icons-material";
 const certificates = {
   marriage: [
     {
       id: "marriage-1",
       title: "Marriage Certificate",
-      file: "./download.jpeg",
+      file: "/fake_marriage_certificate.pdf",
       image:
         "https://courtmarriage.co.in/wp-content/uploads/2017/07/marriage-certificates.jpg",
       issueDate: "20 August 2024",
@@ -23,7 +25,7 @@ const certificates = {
     {
       id: "marriage-2",
       title: "Marriage Certificate",
-      file: "./download.jpeg",
+      file: "/fake_marriage_certificate.pdf",
       image:
         "https://courtmarriage.co.in/wp-content/uploads/2017/07/marriage-certificates.jpg",
       issueDate: "22 September 2024",
@@ -37,7 +39,7 @@ const certificates = {
     {
       id: "marriage-3",
       title: "Marriage Certificate",
-      file: "./download.jpeg",
+      file: "/fake_marriage_certificate.pdf",
       image:
         "https://courtmarriage.co.in/wp-content/uploads/2017/07/marriage-certificates.jpg",
       issueDate: "22 September 2024",
@@ -51,7 +53,7 @@ const certificates = {
     {
       id: "marriage-4",
       title: "Marriage Certificate",
-      file: "./download.jpeg",
+      file: "/fake_marriage_certificate.pdf",
       image:
         "https://courtmarriage.co.in/wp-content/uploads/2017/07/marriage-certificates.jpg",
       issueDate: "22 September 2024",
@@ -65,7 +67,7 @@ const certificates = {
     {
       id: "marriage-5",
       title: "Marriage Certificate",
-      file: "./download.jpeg",
+      file: "/fake_marriage_certificate.pdf",
       image:
         "https://courtmarriage.co.in/wp-content/uploads/2017/07/marriage-certificates.jpg",
       issueDate: "22 September 2024",
@@ -82,8 +84,9 @@ const certificates = {
     {
       id: "baptism-1",
       title: "Baptism Certificate",
-      file: "./baptism.jpg",
-      image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyMs4WbHs7RMn99Q5od3Rf67wpZce8uHlrpQ&s",
+      file: "/fake_baptism_certificate.pdf",
+      image:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyMs4WbHs7RMn99Q5od3Rf67wpZce8uHlrpQ&s",
       issueDate: "15 June 2022",
       description:
         "This is to certify that the baptism was duly administered...",
@@ -95,8 +98,9 @@ const certificates = {
     {
       id: "baptism-2",
       title: "Baptism Certificate",
-      file: "./baptism.jpg",
-       image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyMs4WbHs7RMn99Q5od3Rf67wpZce8uHlrpQ&s",
+      file: "/fake_baptism_certificate.pdf",
+      image:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyMs4WbHs7RMn99Q5od3Rf67wpZce8uHlrpQ&s",
       issueDate: "18 July 2023",
       description:
         "This is to certify that the baptism was duly administered...",
@@ -108,8 +112,9 @@ const certificates = {
     {
       id: "baptism-3",
       title: "Baptism Certificate",
-      file: "./baptism.jpg",
-       image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyMs4WbHs7RMn99Q5od3Rf67wpZce8uHlrpQ&s",
+      file: "/fake_baptism_certificate.pdf",
+      image:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyMs4WbHs7RMn99Q5od3Rf67wpZce8uHlrpQ&s",
       issueDate: "18 July 2023",
       description:
         "This is to certify that the baptism was duly administered...",
@@ -121,8 +126,9 @@ const certificates = {
     {
       id: "baptism-4",
       title: "Baptism Certificate",
-      file: "./baptism.jpg",
-       image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyMs4WbHs7RMn99Q5od3Rf67wpZce8uHlrpQ&s",
+      file: "/fake_baptism_certificate.pdf",
+      image:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyMs4WbHs7RMn99Q5od3Rf67wpZce8uHlrpQ&s",
       issueDate: "18 July 2023",
       description:
         "This is to certify that the baptism was duly administered...",
@@ -134,8 +140,9 @@ const certificates = {
     {
       id: "baptism-5",
       title: "Baptism Certificate",
-      file: "./baptism.jpg",
-       image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyMs4WbHs7RMn99Q5od3Rf67wpZce8uHlrpQ&s",
+      file: "/fake_baptism_certificate.pdf",
+      image:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyMs4WbHs7RMn99Q5od3Rf67wpZce8uHlrpQ&s",
       issueDate: "18 July 2023",
       description:
         "This is to certify that the baptism was duly administered...",
@@ -156,15 +163,63 @@ const Certificates = () => {
 
     const link = document.createElement("a");
     link.href = cert.file;
-    link.setAttribute(
-      "download",
-      `${cert.title.replace(/\s+/g, "_")}_${cert.id}.pdf`,
-    );
+    link.download = `${cert.title.replace(/\s+/g, "_")}_${cert.id}.pdf`;
 
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
   };
+const shareCertificate = async (cert) => {
+  const shareUrl = window.location.origin + cert.file;
+
+  try {
+    // 📱 Mobile PDF share
+    if (navigator.share && navigator.canShare) {
+      const res = await fetch(shareUrl);
+
+      if (!res.ok) throw new Error("File not accessible");
+
+      const blob = await res.blob();
+
+      if (blob.type === "application/pdf") {
+        const file = new File(
+          [blob],
+          `${cert.title.replace(/\s+/g, "_")}_${cert.id}.pdf`,
+          { type: "application/pdf" }
+        );
+
+        if (navigator.canShare({ files: [file] })) {
+          await navigator.share({
+            title: cert.title,
+            files: [file],
+          });
+          return;
+        }
+      }
+    }
+
+    // 🔗 Universal share (most reliable)
+    if (navigator.share) {
+      await navigator.share({
+        title: cert.title,
+        text: "Download certificate",
+        url: shareUrl,
+      });
+      return;
+    }
+
+    // 🖥 Old browser fallback
+    window.open(shareUrl, "_blank");
+
+  } catch (err) {
+    if (err.name !== "AbortError") {
+      console.error("Share failed:", err);
+      window.open(shareUrl, "_blank");
+    }
+  }
+};
+
+
   const downloadImage = (cert) => {
     if (!cert?.file) return;
 
@@ -184,8 +239,8 @@ const Certificates = () => {
   };
 
   return (
-    <div className="min-h-screen px-4 py-5 flex justify-center">
-      <div className="w-full max-w-5xl">
+    <div className="min-h-screen px-4 py-5 flex justify-center w-full">
+      <div className="w-full ">
         <Back />
         {/* Header */}
         <div className="text-center mb-8">
@@ -220,7 +275,7 @@ const Certificates = () => {
             <div
               key={cert.id}
               className="bg-white rounded-2xl shadow-xl p-8 md:p-12"
-              onClick={() => setSlecetedCert(cert)}
+              
             >
               <h2 className="text-2xl font-semibold text-center text-[#842a4c] mb-6">
                 {cert.title}
@@ -249,10 +304,17 @@ const Certificates = () => {
                   <p className="font-medium">{cert.issueDate}</p>
 
                   <div className="flex gap-2 justify-end  items-center">
+                    <button className="inline-flex items-center gap-2 mt-3 px-4 py-2 rounded-lg
+                      bg-[#842a4c] text-white text-sm font-medium
+                      hover:bg-[#6f2340] transition"
+                      onClick={() => setSlecetedCert(cert)}>
+                        <Visibility fontSize="12px"/>
+
+                    </button>
                     <button
                       onClick={(e) => {
                         e.stopPropagation();
-                        downloadImage(cert);
+                        downloadCertificate(cert);
                       }}
                       className="inline-flex items-center gap-2 mt-3 px-4 py-2 rounded-lg
                       bg-[#842a4c] text-white text-sm font-medium
@@ -263,7 +325,7 @@ const Certificates = () => {
                     <button
                       onClick={(e) => {
                         e.stopPropagation();
-                        shareImage(cert);
+                        shareCertificate(cert);
                       }}
                       className="inline-flex items-center gap-2 mt-3 px-4 py-2 rounded-lg
                       bg-[#842a4c] text-white text-sm font-medium
@@ -289,8 +351,8 @@ const Certificates = () => {
         <CertificateModal
           cert={selectedCert}
           onClose={() => setSlecetedCert(null)}
-          onDownload={() => downloadImage(selectedCert)}
-          onShare={() => shareImage(selectedCert)}
+          onDownload={() => downloadCertificate(selectedCert)}
+          onShare={() => shareCertificate(selectedCert)}
         />
       )}
     </div>
@@ -330,10 +392,16 @@ const CertificateModal = ({ cert, onClose, onDownload, onShare }) => {
           />
         </div> */}
         <div className="flex items-center justify-center h-full">
-          <img
+          {/* <img
             src={cert.file}
             alt={cert.title}
             className="w-1/2 h-1/2 lg:w-[500px] lg:h-[500px]"
+          /> */}
+          <iframe
+            src={cert.file}
+            title={cert.title}
+            className="w-full h-full"
+            style={{ border: "none" }}
           />
         </div>
 
@@ -346,7 +414,6 @@ const CertificateModal = ({ cert, onClose, onDownload, onShare }) => {
                       hover:bg-[#6f2340] transition"
           >
             <FaDownload />
-            
           </button>
           <button
             onClick={onShare}
